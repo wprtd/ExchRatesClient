@@ -4,3 +4,4 @@
 3) Запуск npm start
 4) В браузере по адресу localhost:8000 запустить приложение (порт можно изменить в файле package.json)
 
+![alt text](figures/img.png)
