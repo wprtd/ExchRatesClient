@@ -1,0 +1,40 @@
+<div ng-controller="currencyCtrl as currencyCtrl">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Валюта</th>
+                <th scope="col">Описание</th>
+                <th scope="col">Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in currencyCtrl.currencies">
+                <th scope="row">{{item.Id}}</th>
+                <td>{{item.Code}}</td>
+                <td>{{item.Description}}</td>
+                <td>
+                    <form class="form-inline">
+                        <button ng-click="currencyCtrl.edit(item)" class="btn btn-success icon">Изменить</button>&nbsp;
+                        <a href="#!/currency/{{item.Id}}" class="btn btn-info">Подробней</a>&nbsp;
+                        <button ng-click="currencyCtrl.remove(item)" class="btn btn-danger icon">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form class="col-5">
+        <input type="hidden" ng-model="currencyCtrl.Id" />
+        <div class="form-group">
+            <label for="Code">Название валюты</label>
+            <input type="text" ng-model="currencyCtrl.Code" class="form-control" id="Code" placeholder="Введите название валюты">
+        </div>
+        <div class="form-group">
+            <label for="Description">Описание валюты</label>
+            <input type="text" ng-model="currencyCtrl.Description" class="form-control" id="Description" placeholder="Введите описание валюты">
+        </div>
+        <button class="btn btn-primary" ng-click="currencyCtrl.submit()">Save</button>
+        <button type="reset" ng-click="currencyCtrl.clear()" class="btn btn-outline-danger">Clear</button>
+    </form>
+</div>
